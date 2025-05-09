@@ -34,12 +34,19 @@ def takecommand():
 
 @eel.expose
 def allCommand():
+    try:
+        
+        query = takecommand()
+        print(query)
 
-    query = takecommand()
-    print(query)
+        if "open" in query:
+            from engine.features import openCommand
+            openCommand(query)
+        else:
+            print('not run')
 
-    if "open" in query:
-        from engine.features import openCommand
-        openCommand(query)
-    else:
-        print('not run')
+    except:
+        print("Error")
+
+
+

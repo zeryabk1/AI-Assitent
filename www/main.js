@@ -37,4 +37,14 @@ $(document).ready(function () {
         $("#SiriWave").attr("hidden", false);
         eel.allCommand()();
     });
+
+    function doc_keyup(e){
+        if(e.key === 'j' && e.metakey){
+            eel.playAssistantSound()
+            $('#oval').attr('hidden',true)
+            $('#SiriWave').attr('hidden',false)
+            eel.allCommand()()
+        }
+    }
+    document.addEventListener('keyup',doc_keyup,false)
 });

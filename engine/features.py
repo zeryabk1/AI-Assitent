@@ -1,10 +1,14 @@
+import struct
 from playsound import playsound
 import eel
+import pyaudio
 from engine.command import speak
 from engine.config import ASSISTANT_NAME
 import os
 import time
 import webbrowser
+import pvporcupine
+
 
 @eel.expose
 def playAssistantSound():
@@ -39,3 +43,48 @@ def openCommand(query):
     os.system('start ' + query)
 
 
+def hotword():
+    porcupine = None
+    paud = None
+    audio_stream = None
+
+    try:
+        print("Initializing hotword engine...", flush=True)
+
+        porcupine = pvporcupine.create(keywords=['hey google', 'alexa'])
+        paud = pyaudio.PyAudio()
+
+        audio_stream = paud.open(
+            rate=porcupine.sample_rate,
+            channels=1,
+            format=pyaudio.paInt16,
+            input=True,
+            frames_per_buffer=porcupine.frame_length
+        )
+
+        print("Listening for wake words...", flush=True)
+
+        while True:
+            pcm = audio_stream.read(porcupine.frame_length, exception_on_overflow=False)
+            pcm_unpacked = struct.unpack_from("h" * porcupine.frame_length, pcm)
+            keyword_index = porcupine.process(pcm_unpacked)
+
+            if keyword_index >= 0:
+                print(f"Hotword detected: {['hey google', 'alexa'][keyword_index]}", flush=True)
+                import pyautogui as autogui
+                autogui.keyDown('win')
+                autogui.press('j')
+                time.sleep(0.2)
+                autogui.keyUp('win')
+
+    except Exception as e:
+        print("Error in hotword():", e, flush=True)
+
+    finally:
+        if porcupine is not None:
+            porcupine.delete()
+        if audio_stream is not None:
+            audio_stream.stop_stream()
+            audio_stream.close()
+        if paud is not None:
+            paud.terminate()
