@@ -51,7 +51,7 @@ def hotword():
     try:
         print("Initializing hotword engine...", flush=True)
 
-        porcupine = pvporcupine.create(keywords=['hey google', 'alexa'])
+        porcupine = pvporcupine.create(keywords=['jarvis', 'alexa'])
         paud = pyaudio.PyAudio()
 
         audio_stream = paud.open(
@@ -70,11 +70,11 @@ def hotword():
             keyword_index = porcupine.process(pcm_unpacked)
 
             if keyword_index >= 0:
-                print(f"Hotword detected: {['hey google', 'alexa'][keyword_index]}", flush=True)
+                print(f"Hotword detected: {['jarvis', 'alexa'][keyword_index]}", flush=True)
                 import pyautogui as autogui
                 autogui.keyDown('win')
                 autogui.press('j')
-                time.sleep(0.2)
+                time.sleep(0.1)
                 autogui.keyUp('win')
 
     except Exception as e:
