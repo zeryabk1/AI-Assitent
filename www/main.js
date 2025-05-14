@@ -53,7 +53,7 @@ $(document).ready(function () {
 
         if (message != "") {
 
-            $("#Oval").attr("hidden", true);
+            $("#oval").attr("hidden", true);
             $("#SiriWave").attr("hidden", false);
             eel.allCommand(message);
             $("#chatbox").val("")
@@ -97,4 +97,10 @@ $(document).ready(function () {
             PlayAssistant(message)
         }
     });
+    eel.expose(showHood);
+    function showHood() {
+        $("#SiriWave").attr("hidden", true);
+        $("#Oval").attr("hidden", false);
+    }
+
 });

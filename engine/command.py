@@ -49,6 +49,8 @@ def allCommand(message=1):
             print("No valid command found")
     except Exception as e:
         print("Error:", str(e))
+    
+    eel.showHood()
 
 
 
