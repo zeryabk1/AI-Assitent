@@ -33,20 +33,22 @@ def takecommand():
 
 
 @eel.expose
-def allCommand():
-    try:
-        
+def allCommand(message=1):
+    if message == 1:
         query = takecommand()
-        print(query)
+        print("Voice query:", query)
+    else:
+        query = message  
+        print("Text query:", query)
 
+    try:
         if "open" in query:
             from engine.features import openCommand
             openCommand(query)
         else:
-            print('not run')
-
-    except:
-        print("Error")
+            print("No valid command found")
+    except Exception as e:
+        print("Error:", str(e))
 
 
 
