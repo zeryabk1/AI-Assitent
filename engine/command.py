@@ -8,6 +8,7 @@ def speak(text):
     voices = engine.getProperty('voices')
     engine.setProperty('rate', 174)
     engine.say(text)
+    eel.receiverText(text)
     engine.runAndWait()
 
 def takecommand():
@@ -37,9 +38,12 @@ def allCommand(message=1):
     if message == 1:
         query = takecommand()
         print("Voice query:", query)
+        eel.senderText(query)
     else:
         query = message  
         print("Text query:", query)
+        eel.senderText(query)
+
 
     try:
         if "open" in query:
