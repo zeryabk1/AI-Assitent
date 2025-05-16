@@ -1,12 +1,14 @@
 import pyttsx3
 import speech_recognition as sr
-import sounddevice as sd
 import eel 
 import time
 def speak(text):
+    text = str(text)
     engine = pyttsx3.init('sapi5')
     voices = engine.getProperty('voices')
+    engine.setProperty('voice',voices[0].id)
     engine.setProperty('rate', 174)
+    eel.DisplayMessage(text)
     engine.say(text)
     eel.receiverText(text)
     engine.runAndWait()
@@ -26,7 +28,6 @@ def takecommand():
         print(f"User said: {query}")
         eel.DisplayMessage(query)
         time.sleep(2)
-        eel.showHood()
     except Exception as e:
         return ""
     return query.lower()
@@ -50,7 +51,8 @@ def allCommand(message=1):
             from engine.features import openCommand
             openCommand(query)
         else:
-            print("No valid command found")
+            from engine.features import chatBot
+            chatBot(query)
     except Exception as e:
         print("Error:", str(e))
     
