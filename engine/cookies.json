@@ -1,0 +1,67 @@
+[
+    {
+        "domain": ".huggingface.co",
+        "expirationDate": 1778937695,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "__stripe_mid",
+        "path": "/",
+        "sameSite": "strict",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "87eb3b96-c8a6-4ec3-88aa-79d54285a93b2e492c"
+    },
+    {
+        "domain": ".huggingface.co",
+        "expirationDate": 1747747242,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "aws-waf-token",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "d5e38b14-64b4-411e-9eb0-8ea0cd9c4619:BQoAZNpc4C0fAAAA:hJt6iwok5crLjknXWGghi4s5OX8dwDi2tqBE9EoSY/pHxsLXQvjkDS4r0BWYrcbuPaslvCBxD6UBoK99wfqDcVwUpg6XpGY4ZTyz8H/2UGH5/ezzG4GkNRTDmaRlJL2Tw5K0GHMPa6u7Yf/VRjCV2Y0Qr67FZO6TLoEkha7lWtCYjkTxGnDisY+uIcf4tr2Y9eKyXT32TPjHKvCLEvN/pbmIVWz2OT30"
+    },
+    {
+        "domain": ".huggingface.co",
+        "expirationDate": 1747403495,
+        "hostOnly": false,
+        "httpOnly": false,
+        "name": "__stripe_sid",
+        "path": "/",
+        "sameSite": "strict",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "0ffac246-06d6-4f24-89c1-18cc859618ed8ee079"
+    },
+    {
+        "domain": "huggingface.co",
+        "expirationDate": 1748611373.951613,
+        "hostOnly": true,
+        "httpOnly": true,
+        "name": "hf-chat",
+        "path": "/",
+        "sameSite": "lax",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "85ce7272-1b57-4680-9e51-5de0042f9d1a"
+    },
+    {
+        "domain": "huggingface.co",
+        "expirationDate": 1778937551.256049,
+        "hostOnly": true,
+        "httpOnly": true,
+        "name": "token",
+        "path": "/",
+        "sameSite": "no_restriction",
+        "secure": true,
+        "session": false,
+        "storeId": null,
+        "value": "LoSYLwTUrDgtBfoLtnInSNDupTKrrpvZlZDuouKJesHVXwBVrbOXdcZsVxExoTKtwSgxDJdgfvjTGOPZCZhSAGiLQdPXmmXfEbhYsQeroNGSZBJfQWOhGDVFKhvqmsWC"
+    }
+]
